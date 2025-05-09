@@ -85,7 +85,7 @@ const UserProfile = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <p className="text-xs text-gray-500">Demo: new update to this text</p>
+              <p className="text-xs text-gray-500">Demo: jbh,vjhvjhbjdofkodfkdot</p>
             </div>
             <DialogFooter>
               <Button type="button" variant="outline" onClick={() => setIsLoginOpen(false)}>
