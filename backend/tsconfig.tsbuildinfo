@@ -1,1 +1,0 @@
-{"root":["./src/index.ts","./src/controllers/auth.controller.ts","./src/db/prisma.ts","./src/middleware/protectroute.ts","./src/routes/auth.route.ts","./src/utils/cloudinary.ts","./src/utils/generatetoken.ts","./src/validators/auth.ts"],"version":"5.8.2"}

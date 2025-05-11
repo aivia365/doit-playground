@@ -1,38 +1,29 @@
 import express from "express";
-import dotenv from "dotenv";
-import cors from "cors";
 import morgan from "morgan";
-import authRoutes from "./routes/auth.route.js";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+
+import authRouter from "./routes/auth.route.js";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 const app = express();
 
-// Middleware: JSON parsing
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+  })
+);
+
+app.use(cookieParser());
 app.use(express.json());
 
-// Middleware: Enable CORS
-app.use(cors());
+app.use(morgan("dev")); // log the request
 
-// Middleware: Logging requests
-app.use(morgan("dev"));
-
-// Routes
-app.use("/api/auth", authRoutes);
-
-// Global error handler
-app.use(
-  (
-    err: any,
-    req: express.Request,
-    res: express.Response,
-    next: express.NextFunction
-  ) => {
-    console.error("Unhandled Error:", err);
-    res.status(500).json({ error: "Something went wrong" });
-  }
-);
+app.use("/api/auth", authRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
