@@ -85,7 +85,7 @@ const UserProfile = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <p className="text-xs text-gray-500">Demo: Any email and password with 6+ characters will work</p>
+              <p className="text-xs text-gray-500">Demo: jbh,vjhvjhbjdofkodfkdot</p>
             </div>
             <DialogFooter>
               <Button type="button" variant="outline" onClick={() => setIsLoginOpen(false)}>
